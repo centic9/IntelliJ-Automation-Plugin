@@ -29,14 +29,6 @@
   </extensions>
 
   <actions>
-    <group id="AutomationPlugin.AutomationMenu" text="_Automation" description="Automation">
-      <add-to-group group-id="MainMenu" anchor="last"  />
-      <action id="AutomationPlugin.Recompile" class="org.dstadler.intellij.automation.RecompileAction" text="Recompile _All" description="Trigger a full recompile/resync/..." />
-    </group>
-    <action id="AutomationPlugin.REST" class="org.dstadler.intellij.automation.RESTAction" text="REST Action"
-            description="REST Dummy Action">
-      <add-to-group group-id="ToolsMenu" anchor="first"/>
-    </action>
   </actions>
 
   <project-components>
