@@ -9,6 +9,11 @@ plugins {
     id "org.jetbrains.intellij" version "0.1.10"
 }
 
+repositories {
+    mavenCentral()
+    //maven { url 'http://dl.bintray.com/jetbrains/intellij-plugin-service' }
+}
+
 apply plugin: 'idea'
 apply plugin: 'org.jetbrains.intellij'
 apply plugin: 'java'
@@ -22,21 +27,19 @@ compileJava {
 }
 
 intellij {
-    version ideaVersion
-    type ideaType
-    pluginName pluginName
+    version '2016.2'
+    type 'IC'
+    pluginName 'IntelliJ Automation Plugin'
     sameSinceUntilBuild false
     updateSinceUntilBuild false
     downloadSources false
 }
 
-dependencies {
-    compile fileTree(dir: 'lib', include: '*.jar')
-    testCompile "junit:junit:4.12"
-    testCompile "com.github.tomakehurst:wiremock:2.1.7"
-}
+group 'org.dstadler'
+version '0.9'   // plugin version
 
-repositories {
-    mavenCentral()
-    maven { url 'http://dl.bintray.com/jetbrains/intellij-plugin-service' }
+dependencies {
+    //compile fileTree(dir: 'lib', include: '*.jar')
+    //testCompile "junit:junit:4.12"
+    //testCompile "com.github.tomakehurst:wiremock:2.1.7"
 }
