@@ -39,7 +39,7 @@ group 'org.dstadler'
 version '0.9'   // plugin version
 
 dependencies {
-    //compile fileTree(dir: 'lib', include: '*.jar')
+    compile fileTree(dir: 'lib', include: '*.jar')
     //testCompile "junit:junit:4.12"
     //testCompile "com.github.tomakehurst:wiremock:2.1.7"
 }

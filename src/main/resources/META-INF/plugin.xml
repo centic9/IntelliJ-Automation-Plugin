@@ -39,4 +39,9 @@
     </action>
   </actions>
 
+  <project-components>
+    <component>
+      <implementation-class>org.dstadler.intellij.automation.RESTService</implementation-class>
+    </component>
+  </project-components>
 </idea-plugin>
