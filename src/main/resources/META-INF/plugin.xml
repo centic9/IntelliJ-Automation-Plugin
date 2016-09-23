@@ -1,17 +1,19 @@
 <idea-plugin version="2">
   <id>org.dstadler.intellij.automation</id>
-  <name>Plugin to trigger actions in IntelliJ via a REST interface</name>
-  <version>1.0</version>
+  <name>REST automation plugin</name>
+  <version>1.0.1</version>
   <vendor email="dominik.stadler@gmx.at" url="http://dstadler.org">dstadler.org</vendor>
 
   <description><![CDATA[
       IntelliJ plugin to provide automation support.<br>
       It allows to recompile the code via a REST interface.<br>
+      Currently supported interfaces: /Recompile, /Compile, /Version<br>
+      Configure the REST port in the settings under 'REST Automation'
     ]]></description>
 
   <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
+      1.0.1 - Minor text update
+      1.0 - Initial release.
     ]]>
   </change-notes>
 
