@@ -9,6 +9,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.util.containers.HashMap;
 import org.dstadler.commons.http.NanoHTTPD;
 import org.dstadler.commons.logging.jdk.LoggerFactory;
+import org.dstadler.intellij.automation.settings.RESTConfigurationService;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.event.ActionEvent;
@@ -20,7 +21,7 @@ import java.util.logging.Logger;
 
 public class RESTService implements ProjectComponent {
     private final static Logger logger = LoggerFactory.make();
-    
+
     private final Project project;
     private NanoHTTPD nanoHTTPD;
 
@@ -31,7 +32,8 @@ public class RESTService implements ProjectComponent {
 
     @Override
     public void initComponent() {
-        logger.info("Starting REST server to serve actions via REST");
+        final int port = RESTConfigurationService.getInstance().getState().getServer().getPort();
+        logger.info("Starting REST server on port " + port + " to serve actions via REST");
 
         Map<String,ActionListener> actionMap = new HashMap<>();
 
@@ -40,7 +42,7 @@ public class RESTService implements ProjectComponent {
         actionMap.put("Compile", new AnActionActionListener("CompileDirty"));
 
         try {
-            nanoHTTPD = RESTServer.create(actionMap);
+            nanoHTTPD = RESTServer.create(port, actionMap);
         } catch (IOException e) {
             logger.log(Level.SEVERE, "Could not start the REST server", e);
         }
@@ -54,6 +56,11 @@ public class RESTService implements ProjectComponent {
             nanoHTTPD.stop();
             nanoHTTPD = null;
         }
+    }
+
+    public void restart() {
+        disposeComponent();
+        initComponent();
     }
 
     @Override

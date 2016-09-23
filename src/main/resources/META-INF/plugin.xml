@@ -1,6 +1,6 @@
 <idea-plugin version="2">
-  <id>com.your.company.unique.plugin.id</id>
-  <name>Plugin display name here</name>
+  <id>org.dstadler.intellij.automation</id>
+  <name>Plugin to trigger actions in IntelliJ via a REST interface</name>
   <version>1.0</version>
   <vendor email="dominik.stadler@gmx.at" url="http://dstadler.org">dstadler.org</vendor>
 
@@ -25,7 +25,11 @@
   -->
 
   <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
+    <applicationService serviceImplementation="org.dstadler.intellij.automation.settings.RESTConfigurationService"/>
+    <applicationService serviceImplementation="org.dstadler.intellij.automation.IDEADescriptor"/>
+    <projectConfigurable groupId="build"
+                             instance="org.dstadler.intellij.automation.settings.RESTSettingsConfigurable"
+                             id="automation" displayName="REST Automation"/>
   </extensions>
 
   <actions>
