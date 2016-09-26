@@ -29,7 +29,7 @@
   <extensions defaultExtensionNs="com.intellij">
     <applicationService serviceImplementation="org.dstadler.intellij.automation.settings.RESTConfigurationService"/>
     <applicationService serviceImplementation="org.dstadler.intellij.automation.IDEADescriptor"/>
-    <projectConfigurable groupId="build"
+    <applicationConfigurable groupId="build"
                              instance="org.dstadler.intellij.automation.settings.RESTSettingsConfigurable"
                              id="automation" displayName="REST Automation"/>
   </extensions>
@@ -37,9 +37,9 @@
   <actions>
   </actions>
 
-  <project-components>
+  <application-components>
     <component>
       <implementation-class>org.dstadler.intellij.automation.RESTService</implementation-class>
     </component>
-  </project-components>
+  </application-components>
 </idea-plugin>

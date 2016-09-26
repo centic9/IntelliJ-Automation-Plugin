@@ -1,10 +1,9 @@
 package org.dstadler.intellij.automation.settings;
 
 
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.options.ConfigurationException;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.project.ProjectManager;
 import org.dstadler.intellij.automation.IDEADescriptor;
 import org.dstadler.intellij.automation.Messages;
 import org.dstadler.intellij.automation.RESTService;
@@ -95,11 +94,7 @@ public class RESTSettingsConfigurable implements Configurable.NoScroll, Configur
 
         this.applyUIToServerSettings(state.getServer());
 
-        final Project[] openProjects = ProjectManager.getInstance().getOpenProjects();
-        if(openProjects.length == 0) {
-            return;
-        }
-        final RESTService component = openProjects[0].getComponent(RESTService.class);
+        final RESTService component = ApplicationManager.getApplication().getComponent(RESTService.class);
         if(component == null) {
             IDEADescriptor.getInstance().log(Level.WARNING, "Settings error", "", "Could not find component for RESTService", true);
             return;

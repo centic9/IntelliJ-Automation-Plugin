@@ -4,8 +4,9 @@ import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
 import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.components.ProjectComponent;
+import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.project.ProjectManager;
 import com.intellij.util.containers.HashMap;
 import org.dstadler.commons.http.NanoHTTPD;
 import org.dstadler.commons.logging.jdk.LoggerFactory;
@@ -19,16 +20,10 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class RESTService implements ProjectComponent {
+public class RESTService implements ApplicationComponent {
     private final static Logger logger = LoggerFactory.make();
 
-    private final Project project;
     private NanoHTTPD nanoHTTPD;
-
-    public RESTService(Project project) {
-        logger.info("Started with project " + project + ": " + project.getName());
-        this.project = project;
-    }
 
     @Override
     public void initComponent() {
@@ -69,16 +64,6 @@ public class RESTService implements ProjectComponent {
         return "RESTService";
     }
 
-    @Override
-    public void projectOpened() {
-        // called when project is opened
-    }
-
-    @Override
-    public void projectClosed() {
-        // called when project is being closed
-    }
-
     private class AnActionActionListener implements ActionListener {
         private final String actionId;
 
@@ -87,14 +72,17 @@ public class RESTService implements ProjectComponent {
         }
         @Override
         public void actionPerformed(ActionEvent e) {
-            AnActionEvent event = AnActionEvent.createFromDataContext(actionId, null, dataId -> {
-                if (dataId.equals(CommonDataKeys.PROJECT.getName())) {
-                    return project;
-                }
-                return null;
-            });
+            // send a refresh-action for each Project
+            for(Project project : ProjectManager.getInstance().getOpenProjects()) {
+                AnActionEvent event = AnActionEvent.createFromDataContext(actionId, null, dataId -> {
+                    if (dataId.equals(CommonDataKeys.PROJECT.getName())) {
+                        return project;
+                    }
+                    return null;
+                });
 
-            ApplicationManager.getApplication().invokeLater(() -> ActionManager.getInstance().getAction(actionId).actionPerformed(event));
+                ApplicationManager.getApplication().invokeLater(() -> ActionManager.getInstance().getAction(actionId).actionPerformed(event));
+            }
         }
     }
 }
