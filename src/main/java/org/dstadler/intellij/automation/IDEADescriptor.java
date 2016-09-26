@@ -1,26 +1,26 @@
 package org.dstadler.intellij.automation;
 
+import com.intellij.ide.actions.ShowSettingsUtilImpl;
 import com.intellij.ide.plugins.IdeaPluginDescriptor;
 import com.intellij.ide.plugins.PluginManager;
-import com.intellij.notification.Notification;
-import com.intellij.notification.NotificationGroup;
-import com.intellij.notification.NotificationType;
-import com.intellij.notification.Notifications;
+import com.intellij.notification.*;
 import com.intellij.openapi.application.ApplicationInfo;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.extensions.PluginId;
+import com.intellij.openapi.options.ex.SingleConfigurableEditor;
+import com.intellij.openapi.project.Project;
+import org.dstadler.intellij.automation.settings.RESTConfigurationService;
+import org.dstadler.intellij.automation.settings.RESTSettingsConfigurable;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
+import javax.swing.event.HyperlinkEvent;
 import java.util.logging.Level;
 
 
 public class IDEADescriptor {
     public static final NotificationGroup IMPORTANT_NOTIFICATION_GROUP = NotificationGroup.balloonGroup("restautomation.eventlog");
     public static final NotificationGroup INFO_NOTIFICATION_GROUP = NotificationGroup.logOnlyGroup("restautomation.systemlog");
-    private static final String NOTIFICATION_FORMAT = "<b>%s</b><br><i>%s</i><br>%s";
-    private static final String LOG_FORMAT = "[%s](%s) - %s";
 
     public static IDEADescriptor getInstance() {
         return ServiceManager.getService(IDEADescriptor.class);
@@ -40,7 +40,7 @@ public class IDEADescriptor {
         return plugin.getVersion();
     }
 
-    public void log(@NotNull Level level, @NotNull String title, @Nullable String subtitle, @NotNull String content, boolean notification) {
+    public void log(@NotNull Level level, @NotNull String title, @NotNull String content, boolean notification) {
         ApplicationManager.getApplication().invokeLater(() -> {
             NotificationType type = NotificationType.INFORMATION;
             if (level == Level.SEVERE) {
@@ -48,13 +48,28 @@ public class IDEADescriptor {
             } else if (level == Level.WARNING) {
                 type = NotificationType.WARNING;
             }
-            Notification notif;
+
+            NotificationListener listener = new NotificationListener.Adapter() {
+                @Override
+                protected void hyperlinkActivated(@NotNull Notification notification, @NotNull HyperlinkEvent e) {
+                    showSettings();
+                }
+            };
+
+            final Notification notif;
             if (notification) {
-                notif = IMPORTANT_NOTIFICATION_GROUP.createNotification(String.format(NOTIFICATION_FORMAT, title, subtitle, content), type);
+                notif = IMPORTANT_NOTIFICATION_GROUP.createNotification(title, content, type, listener);
             } else {
-                notif = INFO_NOTIFICATION_GROUP.createNotification(String.format(LOG_FORMAT, title, subtitle, content), type);
+                notif = INFO_NOTIFICATION_GROUP.createNotification(title, content, type, listener);
             }
             Notifications.Bus.notify(notif);
         });
+    }
+
+    public static void showSettings() {
+        RESTSettingsConfigurable configurable = new RESTSettingsConfigurable(RESTConfigurationService.getInstance());
+        String dimensionKey = ShowSettingsUtilImpl.createDimensionKey(configurable);
+        SingleConfigurableEditor singleConfigurableEditor = new SingleConfigurableEditor((Project)null, configurable, dimensionKey, false);
+        singleConfigurableEditor.show();
     }
 }

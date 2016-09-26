@@ -8,6 +8,7 @@ import org.dstadler.intellij.automation.IDEADescriptor;
 import org.dstadler.intellij.automation.Messages;
 import org.dstadler.intellij.automation.RESTService;
 import org.jetbrains.annotations.Nls;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
@@ -17,7 +18,7 @@ public class RESTSettingsConfigurable implements Configurable.NoScroll, Configur
     private final RESTConfigurationService provider;
     private RESTSettingsPanel panel;
 
-    public RESTSettingsConfigurable(RESTConfigurationService provider) {
+    public RESTSettingsConfigurable(@NotNull RESTConfigurationService provider) {
         this.provider = provider;
     }
 
@@ -96,7 +97,7 @@ public class RESTSettingsConfigurable implements Configurable.NoScroll, Configur
 
         final RESTService component = ApplicationManager.getApplication().getComponent(RESTService.class);
         if(component == null) {
-            IDEADescriptor.getInstance().log(Level.WARNING, "Settings error", "", "Could not find component for RESTService", true);
+            IDEADescriptor.getInstance().log(Level.WARNING, "Settings error", "Could not find component for RESTService", true);
             return;
         }
         component.restart();

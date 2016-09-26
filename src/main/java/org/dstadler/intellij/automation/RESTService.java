@@ -39,7 +39,7 @@ public class RESTService implements ApplicationComponent {
         try {
             nanoHTTPD = RESTServer.create(port, actionMap);
         } catch (IOException e) {
-            logger.log(Level.SEVERE, "Could not start the REST server", e);
+            IDEADescriptor.getInstance().log(Level.SEVERE, "Could not start the REST server", "Error: " + e + "<br>\n<a href=\"#\">Fix Configuration</a>", true);
         }
     }
 
