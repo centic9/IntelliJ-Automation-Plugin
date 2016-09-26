@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>org.dstadler.intellij.automation</id>
   <name>REST automation plugin</name>
-  <version>1.0.1</version>
+  <version>1.0.3</version>
   <vendor email="dominik.stadler@gmx.at" url="http://dstadler.org">dstadler.org</vendor>
 
   <description><![CDATA[
@@ -12,6 +12,8 @@
     ]]></description>
 
   <change-notes><![CDATA[
+      1.0.3 - Switch from project to application based plugin (#1), UI notification if starting the REST server fails
+      1.0.2 - Only internal changes
       1.0.1 - Minor text update
       1.0 - Initial release.
     ]]>

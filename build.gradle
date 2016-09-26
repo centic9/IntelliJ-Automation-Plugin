@@ -36,7 +36,7 @@ intellij {
 }
 
 group 'org.dstadler'
-version '1.0.2'   // plugin version
+version '1.0.3'   // plugin version
 
 dependencies {
     compile fileTree(dir: 'lib', include: '*.jar')
