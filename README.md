@@ -22,7 +22,21 @@ It uses the Gradle plugin from https://github.com/JetBrains/gradle-intellij-plug
 
 The plugin is not (yet) published at the IntelliJ plugin repository, therefore you need to build and install it locally.
 
-After building the plugin, there is a zip file at ´build/distributions´ which is the bundled plugin package. You can import this in IntelliJ via ´Plugins -> Install plugin from disk´.
+After building the plugin, there is a zip file at ´build/distributions´ which is the bundled plugin package. You can import this in IntelliJ via ´Plugins -> Install plugin from disk´. After a restart of IntelliJ there should be a REST server running on port 10081.
+
+#### Configure it
+
+There is a new section "REST Automation" in the IntelliJ settings where you can change on which port the REST server is started. 
+
+Changes should be applied immediately, no restart necessary.
+
+#### Invoke it
+
+The plugin currently only supports the actions `Version`, `Recompile` and `Compile`, but it is easy to add new ones, see [RESTService](https://github.com/centic9/IntelliJ-Automation-Plugin/blob/master/src/main/java/org/dstadler/intellij/automation/RESTService.java#L36) for the code and http://keithlea.com/idea-actions/ for a list of available actions (although this is incomplete and a bit outdated).
+
+You can invoke this in a script via the following (curl can be installed on Windows via [Cygwin](https://cygwin.com/)
+
+    curl http://localhost:10081/Recompile
 
 #### Contribute
 
