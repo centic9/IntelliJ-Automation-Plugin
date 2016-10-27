@@ -32,7 +32,7 @@ Changes should be applied immediately, no restart necessary.
 
 #### Invoke it
 
-The plugin currently only supports the actions `Version`, `Recompile` and `Compile`, but it is easy to add new ones, see [RESTService](https://github.com/centic9/IntelliJ-Automation-Plugin/blob/master/src/main/java/org/dstadler/intellij/automation/RESTService.java#L36) for the code and http://keithlea.com/idea-actions/ for a list of available actions (although this is incomplete and a bit outdated).
+The plugin currently only supports the actions `Version`, `Recompile`, `Compile` and `VcsRefresh`, but it is easy to add new ones, see [RESTService](https://github.com/centic9/IntelliJ-Automation-Plugin/blob/master/src/main/java/org/dstadler/intellij/automation/RESTService.java#L36) for the code and http://keithlea.com/idea-actions/ for a list of available actions (although this is incomplete and a bit outdated).
 
 You can invoke this in a script via the following (curl can be installed on Windows via [Cygwin](https://cygwin.com/)
 

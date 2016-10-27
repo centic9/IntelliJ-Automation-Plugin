@@ -35,6 +35,7 @@ public class RESTService implements ApplicationComponent {
         // map actionIds to REST paths
         actionMap.put("Recompile", new AnActionActionListener("CompileProject"));
         actionMap.put("Compile", new AnActionActionListener("CompileDirty"));
+        actionMap.put("VcsRefresh", new AnActionActionListener("Vcs.RefreshStatuses"));
 
         try {
             nanoHTTPD = RESTServer.create(port, actionMap);
