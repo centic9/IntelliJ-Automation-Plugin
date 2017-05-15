@@ -6,7 +6,7 @@ buildscript {
 }
 
 plugins {
-    id "org.jetbrains.intellij" version "0.1.10"
+    id "org.jetbrains.intellij" version "0.2.9"
 }
 
 repositories {
@@ -36,10 +36,18 @@ intellij {
 }
 
 group 'org.dstadler'
-version '1.0.4'   // plugin version
+version '1.0.5'   // plugin version
 
 dependencies {
-    compile fileTree(dir: 'lib', include: '*.jar')
+    //compile fileTree(dir: 'lib', include: '*.jar')
+    compile 'org.dstadler:commons-dost:1.0.0.22'
+    compile 'commons-io:commons-io:2.5'
+    compile 'org.apache.commons:commons-lang3:3.5'
+
     //testCompile "junit:junit:4.12"
     //testCompile "com.github.tomakehurst:wiremock:2.1.7"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.4.1'
 }
