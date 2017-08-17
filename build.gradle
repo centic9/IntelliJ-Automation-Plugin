@@ -36,13 +36,13 @@ intellij {
 }
 
 group 'org.dstadler'
-version '1.0.5'   // plugin version
+version '1.0.6'   // plugin version
 
 dependencies {
     //compile fileTree(dir: 'lib', include: '*.jar')
-    compile 'org.dstadler:commons-dost:1.0.0.22'
+    compile 'org.dstadler:commons-dost:1.0.0.23'
     compile 'commons-io:commons-io:2.5'
-    compile 'org.apache.commons:commons-lang3:3.5'
+    compile 'org.apache.commons:commons-lang3:3.6'
 
     //testCompile "junit:junit:4.12"
     //testCompile "com.github.tomakehurst:wiremock:2.1.7"
