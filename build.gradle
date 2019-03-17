@@ -6,7 +6,7 @@ buildscript {
 }
 
 plugins {
-    id "org.jetbrains.intellij" version "0.2.9"
+    id "org.jetbrains.intellij" version "0.4.5"
 }
 
 repositories {
@@ -27,7 +27,7 @@ compileJava {
 }
 
 intellij {
-    version '2016.2'
+    version '2018.3'
     type 'IC'
     pluginName 'IntelliJ Automation Plugin'
     sameSinceUntilBuild false
@@ -40,14 +40,14 @@ version '1.0.6'   // plugin version
 
 dependencies {
     //compile fileTree(dir: 'lib', include: '*.jar')
-    compile 'org.dstadler:commons-dost:1.0.0.23'
-    compile 'commons-io:commons-io:2.5'
-    compile 'org.apache.commons:commons-lang3:3.6'
+    compile 'org.dstadler:commons-dost:1.0.0.27'
+    compile 'commons-io:commons-io:2.6'
+    compile 'org.apache.commons:commons-lang3:3.8.1'
 
     //testCompile "junit:junit:4.12"
     //testCompile "com.github.tomakehurst:wiremock:2.1.7"
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '3.4.1'
+wrapper {
+    gradleVersion = '4.10.3'
 }
