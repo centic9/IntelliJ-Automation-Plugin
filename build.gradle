@@ -6,7 +6,7 @@ buildscript {
 }
 
 plugins {
-    id "org.jetbrains.intellij" version "0.4.5"
+    id "org.jetbrains.intellij" version "0.4.9"
 }
 
 repositories {
@@ -42,7 +42,7 @@ dependencies {
     //compile fileTree(dir: 'lib', include: '*.jar')
     compile 'org.dstadler:commons-dost:1.0.0.27'
     compile 'commons-io:commons-io:2.6'
-    compile 'org.apache.commons:commons-lang3:3.8.1'
+    compile 'org.apache.commons:commons-lang3:3.9'
 
     // for compiling with JDK 11
     compile 'javax.xml.bind:jaxb-api:2.3.1'
