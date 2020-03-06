@@ -9,10 +9,10 @@ before_install:
 
 install: 
 - gradle wrapper
-- ./gradlew checkSnapshotDependencies compileJava
+- ./gradlew compileJava
 
 script:
-  - ./gradlew buildPlugin
+  - ./gradlew buildPlugin check
 
 after_failure:
 - cat build/test-results/*.xml
