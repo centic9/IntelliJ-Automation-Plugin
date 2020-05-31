@@ -4,7 +4,7 @@
 
 Provides a plugin for IntelliJ to have a REST service available for running certain tasks in IntelliJ in an automated way.
 
-This is mostly used in nightly update-jobs on developer machines for triggering a refresh/recompile of code after a checkout/merge onto the latest state from the source repository.
+This can be used in nightly update-jobs on developer machines for triggering a refresh/recompile of code after a checkout/merge onto the latest state from the source repository.
 
 #### Getting started
 
@@ -26,15 +26,15 @@ After building the plugin, there is a zip file at ´build/distributions´ which 
 
 #### Configure it
 
-There is a new section "REST Automation" in the IntelliJ settings where you can change on which port the REST server is started. 
+There is a section "REST Automation" in the IntelliJ settings where you can change the port of the REST server. 
 
 Changes should be applied immediately, no restart necessary.
 
 #### Invoke it
 
-The plugin currently only supports the actions `Version`, `Recompile`, `Compile` and `VcsRefresh`, but it is easy to add new ones, see [RESTService](https://github.com/centic9/IntelliJ-Automation-Plugin/blob/master/src/main/java/org/dstadler/intellij/automation/RESTService.java#L36) for the code and http://keithlea.com/idea-actions/ for a list of available actions (although this is incomplete and a bit outdated).
+The plugin currently only supports the actions `Version`, `Recompile`, `Compile` and `VcsRefresh`, but it is easy to add new ones, see [RESTService](https://github.com/centic9/IntelliJ-Automation-Plugin/blob/master/src/main/java/org/dstadler/intellij/automation/RESTService.java#L36) for the code and https://centic9.github.io/IntelliJ-Action-IDs/ for a list of available actions.
 
-You can invoke this in a script via the following (curl can be installed on Windows via [Cygwin](https://cygwin.com/)
+You can invoke this in a script via the following (curl can be installed on Windows via [Cygwin](https://cygwin.com/))
 
     curl http://localhost:10081/Recompile
 
@@ -42,7 +42,7 @@ You can invoke this in a script via the following (curl can be installed on Wind
 
 If you are missing things or have suggestions how to improve the plugin, please either send pull requests or create [issues](https://github.com/centic9/IntelliJ-Automation-Plugin/issues).
 
-##### Run the plugin from the sources
+##### Run the plugin from the sources for testing
 
     ./gradlew runIdea
 
