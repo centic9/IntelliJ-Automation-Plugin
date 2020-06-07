@@ -50,4 +50,4 @@ If you are missing things or have suggestions how to improve the plugin, please 
 * IntelliJ-Automation-Plugin is licensed under the [BSD 2-Clause License].
 * A few pieces are imported from other sources, the source-files contain the necessary license pieces/references.
 
-[BSD 2-Clause License]: http://www.opensource.org/licenses/bsd-license.php
+[BSD 2-Clause License]: https://www.opensource.org/licenses/bsd-license.php
