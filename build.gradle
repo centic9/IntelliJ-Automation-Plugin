@@ -42,11 +42,11 @@ dependencies {
     //compile fileTree(dir: 'lib', include: '*.jar')
     compile 'org.dstadler:commons-dost:1.0.0.31'
     compile 'commons-io:commons-io:2.7'
-    compile 'org.apache.commons:commons-lang3:3.10'
+    compile 'org.apache.commons:commons-lang3:3.11'
 
     // for compiling with JDK 11
     compile 'javax.xml.bind:jaxb-api:2.3.1'
-    compile 'com.sun.xml.bind:jaxb-impl:2.3.2'
+    compile 'com.sun.xml.bind:jaxb-impl:2.3.3'
     compile 'com.sun.xml.bind:jaxb-core:2.3.0.1'
 
     //testCompile 'junit:junit:4.13'
