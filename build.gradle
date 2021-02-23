@@ -49,7 +49,7 @@ dependencies {
     compile 'com.sun.xml.bind:jaxb-impl:2.3.3'
     compile 'com.sun.xml.bind:jaxb-core:2.3.0.1'
 
-    //testCompile 'junit:junit:4.13.1'
+    //testCompile 'junit:junit:4.13.2'
     //testCompile 'com.github.tomakehurst:wiremock:2.1.7'
 }
 
