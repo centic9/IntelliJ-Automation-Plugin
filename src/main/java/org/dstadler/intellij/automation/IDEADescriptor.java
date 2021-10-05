@@ -67,7 +67,7 @@ public class IDEADescriptor {
     }
 
     public static void showSettings() {
-        RESTSettingsConfigurable configurable = new RESTSettingsConfigurable(RESTConfigurationService.getInstance());
+        RESTSettingsConfigurable configurable = new RESTSettingsConfigurable();
         String dimensionKey = ShowSettingsUtilImpl.createDimensionKey(configurable);
         SingleConfigurableEditor singleConfigurableEditor = new SingleConfigurableEditor((Project)null, configurable, dimensionKey, false);
         singleConfigurableEditor.show();

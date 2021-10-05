@@ -8,7 +8,6 @@ import org.dstadler.intellij.automation.IDEADescriptor;
 import org.dstadler.intellij.automation.Messages;
 import org.dstadler.intellij.automation.RESTService;
 import org.jetbrains.annotations.Nls;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
@@ -18,13 +17,13 @@ public class RESTSettingsConfigurable implements Configurable.NoScroll, Configur
     private final RESTConfigurationService provider;
     private RESTSettingsPanel panel;
 
-    public RESTSettingsConfigurable(@NotNull RESTConfigurationService provider) {
-        this.provider = provider;
+    public RESTSettingsConfigurable() {
+        this.provider = RESTConfigurationService.getInstance();
     }
 
     private static int checkPort(String strPort, String service) throws ConfigurationException {
         try {
-            int port = Integer.valueOf(strPort);
+            int port = Integer.parseInt(strPort);
             if (port < 0 || port > 0xFFFF) {
                 throw new ConfigurationException(Messages.getMessage("plugin.settings.ui.validation.illegalPort", service));
             }

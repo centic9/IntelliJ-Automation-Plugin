@@ -33,7 +33,7 @@ public class RESTConfigurationService implements PersistentStateComponent<RESTCo
     public static class State {
         @NotNull
         @Property
-        private RESTServerSettings server = new RESTServerSettings();
+        private final RESTServerSettings server = new RESTServerSettings();
 
         @NotNull
         public RESTServerSettings getServer() {

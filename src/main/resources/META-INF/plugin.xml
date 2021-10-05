@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>org.dstadler.intellij.automation</id>
-  <name>REST automation plugin</name>
-  <version>1.0.5</version>
+  <name>REST Automation</name>
+  <version>1.0.7</version>
   <vendor email="dominik.stadler@gmx.at" url="http://dstadler.org">dstadler.org</vendor>
 
   <description><![CDATA[
@@ -12,6 +12,8 @@
     ]]></description>
 
   <change-notes><![CDATA[
+      1.0.7 - Update libraries and adjust for recent IntelliJ
+      1.0.6 - Update libraries
       1.0.5 - Update libraries and Gradle wrapper version
       1.0.4 - Add `VcsRefresh` to allow to trigger a refresh of the version control information manually<br>
       1.0.3 - Switch from project to application based plugin (#1), UI notification if starting the REST server fails<br>
