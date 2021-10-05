@@ -1,8 +1,10 @@
 package org.dstadler.intellij.automation;
 
 import com.intellij.openapi.actionSystem.ActionManager;
+import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
+import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.project.Project;
@@ -65,7 +67,7 @@ public class RESTService implements ApplicationComponent {
         return "RESTService";
     }
 
-    private class AnActionActionListener implements ActionListener {
+    private static class AnActionActionListener implements ActionListener {
         private final String actionId;
 
         public AnActionActionListener(String actionId) {
@@ -82,7 +84,21 @@ public class RESTService implements ApplicationComponent {
                     return null;
                 });
 
-                ApplicationManager.getApplication().invokeLater(() -> ActionManager.getInstance().getAction(actionId).actionPerformed(event));
+				final Application application = ApplicationManager.getApplication();
+				application.invokeLater(() -> {
+					final ActionManager actionManager = ActionManager.getInstance();
+					if (actionManager == null) {
+						logger.warning("Could not execute action " + actionId + ", did not get ActionManager");
+						return;
+					}
+
+					final AnAction action = actionManager.getAction(actionId);
+					if (action == null) {
+						logger.warning("Could not execute action " + actionId + ", did not find a corresponding action");
+						return;
+					}
+					action.actionPerformed(event);
+				});
             }
         }
     }
