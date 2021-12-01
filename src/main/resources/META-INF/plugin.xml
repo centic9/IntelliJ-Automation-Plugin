@@ -2,7 +2,7 @@
   <id>org.dstadler.intellij.automation</id>
   <name>REST Automation</name>
   <version>1.0.9</version>
-  <vendor email="dominik.stadler@gmx.at" url="http://dstadler.org">dstadler.org</vendor>
+  <vendor email="dominik.stadler@gmx.at" url="https://github.com/centic9/IntelliJ-Automation-Plugin/">https://github.com/centic9/IntelliJ-Automation-Plugin/</vendor>
 
   <description><![CDATA[
       IntelliJ plugin to provide automation support.<br>
