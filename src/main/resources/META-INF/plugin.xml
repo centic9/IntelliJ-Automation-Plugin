@@ -12,6 +12,7 @@
     ]]></description>
 
   <change-notes><![CDATA[
+      1.0.10 - Upgrade to latest version of plugin framework
       1.0.9 - Avoid a possible NullPointerException
       1.0.8 - Switch to Java 11 and IntelliJ 2020.3
       1.0.7 - Update libraries and adjust for recent IntelliJ
