@@ -15,4 +15,4 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    uses: centic9/actions/.github/workflows/gradle-build.yml@1
+    uses: centic9/actions/.github/workflows/gradle-build.yml@2
