@@ -14,4 +14,4 @@ on:
 
 jobs:
   build-and-test:
-    uses: centic9/actions/.github/workflows/gradle-build.yml@2
+    uses: centic9/actions/.github/workflows/gradle-build.yml@3
