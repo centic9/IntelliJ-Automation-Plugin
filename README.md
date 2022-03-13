@@ -1,6 +1,8 @@
-[![Build Status](https://travis-ci.org/centic9/IntelliJ-Automation-Plugin.svg)](https://travis-ci.org/centic9/IntelliJ-Automation-Plugin) 
+[![Build Status](https://github.com/centic9/IntelliJ-Automation-Plugin/actions/workflows/gradle-build.yml/badge.svg)](https://github.com/centic9/IntelliJ-Automation-Plugin/actions)
 [![Gradle Status](https://gradleupdate.appspot.com/centic9/IntelliJ-Automation-Plugin/status.svg?branch=master)](https://gradleupdate.appspot.com/centic9/IntelliJ-Automation-Plugin/status)
 [![Release](https://img.shields.io/github/release/centic9/IntelliJ-Automation-Plugin.svg)](https://github.com/centic9/IntelliJ-Automation-Plugin/releases)
+[![GitHub release](https://img.shields.io/github/release/centic9/IntelliJ-Automation-Plugin.svg?label=changelog)](https://github.com/centic9/IntelliJ-Automation-Plugin/releases/latest)
+[![Tag](https://img.shields.io/github/tag/centic9/IntelliJ-Automation-Plugin.svg)](https://github.com/centic9/IntelliJ-Automation-Plugin/tags)
 
 Provides a plugin for IntelliJ to have a REST service available for running certain tasks in IntelliJ in an automated way.
 
