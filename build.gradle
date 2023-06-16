@@ -34,7 +34,7 @@ version '1.0.10'   // plugin version
 dependencies {
     //implementation fileTree(dir: 'lib', include: '*.jar')
     implementation 'org.dstadler:commons-dost:1.2.0.1'
-    implementation 'commons-io:commons-io:2.12.0'
+    implementation 'commons-io:commons-io:2.13.0'
     implementation 'org.apache.commons:commons-lang3:3.12.0'
 
     // for compiling with JDK 11
