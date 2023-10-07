@@ -33,8 +33,8 @@ version '1.0.10'   // plugin version
 
 dependencies {
     //implementation fileTree(dir: 'lib', include: '*.jar')
-    implementation 'org.dstadler:commons-dost:1.2.0.2'
-    implementation 'commons-io:commons-io:2.13.0'
+    implementation 'org.dstadler:commons-dost:1.2.0.3'
+    implementation 'commons-io:commons-io:2.14.0'
     implementation 'org.apache.commons:commons-lang3:3.13.0'
 
     // for compiling with JDK 11
@@ -42,7 +42,7 @@ dependencies {
     implementation 'com.sun.xml.bind:jaxb-impl:2.3.3'
     implementation 'com.sun.xml.bind:jaxb-core:2.3.0.1'
 
-    //testImplementation 'junit:junit:4.13.2'
+    //testImplementation 'org.junit.vintage:junit-vintage-engine:5.10.0'
     //testImplementation 'com.github.tomakehurst:wiremock:2.1.7'
 }
 
