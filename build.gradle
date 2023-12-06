@@ -35,7 +35,7 @@ dependencies {
     //implementation fileTree(dir: 'lib', include: '*.jar')
     implementation 'org.dstadler:commons-dost:1.2.0.3'
     implementation 'commons-io:commons-io:2.15.0'
-    implementation 'org.apache.commons:commons-lang3:3.13.0'
+    implementation 'org.apache.commons:commons-lang3:3.14.0'
 
     // for compiling with JDK 11
     implementation 'javax.xml.bind:jaxb-api:2.3.1'
