@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>org.dstadler.intellij.automation</id>
   <name>REST Automation</name>
-  <version>1.0.9</version>
+  <version>1.0.11</version>
   <vendor email="dominik.stadler@gmx.at" url="https://github.com/centic9/IntelliJ-Automation-Plugin/">https://github.com/centic9/IntelliJ-Automation-Plugin/</vendor>
 
   <description><![CDATA[
@@ -12,6 +12,7 @@
     ]]></description>
 
   <change-notes><![CDATA[
+      1.0.11 - Update to minimum IntelliJ 2022.3 and JDK 17
       1.0.10 - Upgrade to latest version of plugin framework
       1.0.9 - Avoid a possible NullPointerException
       1.0.8 - Switch to Java 11 and IntelliJ 2020.3
@@ -27,7 +28,7 @@
   </change-notes>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-  <idea-version since-build="141.0"/>
+  <idea-version since-build="223.0"/>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
        on how to target different products -->
